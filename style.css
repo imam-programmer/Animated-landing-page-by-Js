@@ -82,7 +82,7 @@ body {
 #chhotiheadings h5{
     text-align: right;
     margin-top:.5vw;
-    font-size: 1vw;
+    /* font-size: 1vw; */
 }
 #herofooter{
     padding: 0 2vw;
@@ -115,6 +115,7 @@ body {
     height: 100vh;
     background: black;
     color: white;
+    position: relative;
 }
 #second .elem{
     width: 100%;
@@ -137,9 +138,10 @@ body {
 }
 .elem img{
     position: absolute;
+
     z-index: 999;
-    height: 120%;
-    display: none;
+    height: 150%;
+    opacity: 0;
 }
 #about{
     background: #000;
@@ -214,4 +216,51 @@ gap: 20px;
 #footerright{
     display: flex;
     gap: 20px;
+}
+
+
+@media (min-width:300px) and (max-width:600px){
+    #heading #secoundh1 {
+    margin-left: 77px;
+}
+.blocktext h5 {
+    font-size: 10px;
+}
+#nav {
+    padding: 20px 12px;
+}
+#chhotiheadings h5 {
+    font-size: 10px;
+    line-height: 20px;
+}
+#chhotiheadings {
+    margin-top: 80px;
+    padding-right: 12px;
+}
+#herofooter a {
+    font-size: 10px;
+    width: 100%;
+}
+#herofooter .circle {
+    width: 19px;
+    height: 19px;
+}
+#hero {
+    height: 70vh;
+}
+#second {
+    padding-top: 100px;
+    height: 0px;
+
+}
+#about {
+    padding: 200px 100px 10px 10px;
+    gap: 20px;
+text-align: center;
+    flex-direction: column;
+
+}
+#textabout p {
+    width: 100%;
+}
 }
