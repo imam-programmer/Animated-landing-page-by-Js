@@ -63,3 +63,17 @@ document.querySelector("#minicircle").style.transform=`translate(${e.clientX}px,
 circleChaptaKaro()
 circleMouseFollower()
 firstPageAnim()
+
+
+
+//  3 element select 
+
+document.querySelectorAll(".elem").forEach(function (elem){
+    elem.addEventListener("mousemove",function(details){
+        gsap.to(elem.querySelector("img"),{
+            display:"block",
+            ease:Power1,
+        })
+
+    })
+});
