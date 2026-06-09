@@ -158,6 +158,7 @@ body {
     background: #000;
     color: white;
     padding: 20px 30px;
+    padding-bottom: 10vw;
 }
 #subscribe h5{
     text-transform: uppercase;
@@ -167,4 +168,26 @@ body {
     text-transform: uppercase;
     font-size: 14px;
     margin-top: 10px;
+}
+#footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 30px;
+    background: #000;
+    color: white;
+}
+#footer a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+#footerleft{
+display: flex;
+gap: 20px;
+}
+#footerright{
+    display: flex;
+    gap: 20px;
 }
