@@ -3,6 +3,7 @@ const scroll=new LocomotiveScroll({
     smooth:true
 })
 
+var timeout;
 function firstPageAnim(){
     var tl = gsap.timeline();
     tl.from("#nav",{
@@ -27,12 +28,38 @@ function firstPageAnim(){
     })
 }
 
-function circleMouseFollower(){
+
+function circleChaptaKaro(){  
+
+    let xscale=1;
+    let yscale=1;
+    var xprev=0;
+    var yprev=0;
+    window.addEventListener("mousemove",(dets)=>{
+    clearTimeout(timeout)
+
+
+xscale=gsap.utils.clamp(.8,1.2, dets.clientX - xprev)
+yscale=gsap.utils.clamp(.8,1.2, dets.clientY - yprev)
+xprev=dets.clientX
+yprev=dets.clientY
+
+circleMouseFollower(xscale, yscale)
+
+
+timeout=setTimeout(function(){
+document.querySelector("#minicircle").style.transform=`translate(${dets.clientX}px, ${dets.clientY}px) scale(1,1)`
+},100)
+
+    })
+}
+
+function circleMouseFollower(xscale, yscale){
    window.addEventListener("mousemove",(e)=>{
-let minicircle=document.querySelector("#minicircle");
-minicircle.style.transform=`translate(${e.clientX}px, ${e.clientY}px)`
+document.querySelector("#minicircle").style.transform=`translate(${e.clientX}px, ${e.clientY}px) `
    })
    
 }
+circleChaptaKaro()
 circleMouseFollower()
 firstPageAnim()

@@ -15,6 +15,7 @@ body {
     position: absolute;
     z-index: 999;
     border-radius: 50%;
+   
     background-color: white;
 }
 .bounding{
