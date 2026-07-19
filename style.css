@@ -219,7 +219,7 @@ gap: 20px;
 }
 
 
- @media (min-width:300px) and (max-width:600px){
+ @media (min-width:300px) and (max-width:540px){
     #heading #secoundh1 {
     margin-left: 77px;
 }
@@ -241,9 +241,11 @@ gap: 20px;
   position: absolute;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     text-align: center;
     gap: 10px;
     bottom: 20px;
+    /* width: 100%; */
 }
 #hero {
 position: relative;
@@ -315,3 +317,93 @@ gap: 10px;
 } 
 
 /* ===========extra small device responsive done===================== */
+
+
+/* ============small device responsive start======================= */
+  @media (min-width:541px) and (max-width:800px){
+    #heading #secoundh1 {
+    margin-left: 97px;
+}
+
+#nav {
+    padding: 20px 12px;
+}
+
+#herofooter {
+  position: absolute;
+    justify-content: space-between;
+
+    bottom: 50px;
+  width: 95%;
+}
+#hero {
+position: relative;
+}
+#herofooter a {
+    font-size: 14px;
+    width: 100%;
+}
+#herofooter .circle {
+    width: 22px;
+    height: 22px;
+}
+#hero {
+    height: 100vh;
+}
+#second {
+    padding-top: 0;
+    height: 0px;
+
+}
+
+#about {
+    padding: 0 10px !important;
+    gap: 20px;
+    text-align: center;
+
+    flex-direction: column;
+}
+
+}
+#textabout p {
+    width: 100%;
+}
+#about {
+
+padding: 0;
+margin-top: 60vw;
+    gap: 30px;
+
+}
+#textabout p {
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+#textabout {
+    width: 100%;
+}
+
+#subscribe {
+    background: #000;
+    color: white;
+    padding: 0;
+    padding-bottom: 10vw;
+    text-align: center;
+    margin-top: 100px;
+}
+
+#footer {
+
+    padding:20px 0;
+gap: 10px;
+    flex-direction: column-reverse;
+}
+
+#footerright {
+
+    gap: 10px;
+}
+#footer a {
+    font-size: 12px;
+}
+}  
