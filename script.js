@@ -1,217 +1,187 @@
-let mm=gsap.matchMedia()
-mm.add("(min-width:300px)",()=>{
+let mm = gsap.matchMedia();
+// mm.add("(min-width:300px)",()=>{
 
-    const scroll=new LocomotiveScroll({
-        el:document.querySelector('#main'),
-        smooth:true
-    })
-    
-    var timeout;
-    function firstPageAnim(){
-        var tl = gsap.timeline();
-        tl.from("#nav",{
-            y:"-20",
-            duration:2,
-            opacity:0,
-            ease:Expo.easeInOut
-        })
-        .to(".boundingelem",{
-            y:0,
-            ease:Expo.easeInOut,
-            duration:1.5,
-            delay:-1,
-            stagger:.2
-        })
-          tl.from("#herofooter",{
-            y:"-10",
-            duration:1.5,
-            opacity:0,
-            delay:-1,
-            ease: Expo.easeInOut
-        })
-    }
-    
-    
-    function circleChaptaKaro(){  
-    
-        let xscale=1;
-        let yscale=1;
-        var xprev=0;
-        var yprev=0;
-        window.addEventListener("mousemove",(dets)=>{
-        clearTimeout(timeout)
-    
-    
-    xscale=gsap.utils.clamp(.8,1.2, dets.clientX - xprev)
-    yscale=gsap.utils.clamp(.8,1.2, dets.clientY - yprev)
-    xprev=dets.clientX
-    yprev=dets.clientY
-    
-    circleMouseFollower(xscale, yscale)
-    
-    
-    timeout=setTimeout(function(){
-    document.querySelector("#minicircle").style.transform=`translate(${dets.clientX}px, ${dets.clientY}px) scale(1,1)`
-    },100)
-    
-        })
-    }
-    
-    function circleMouseFollower(xscale, yscale){
-       window.addEventListener("mousemove",(e)=>{
-    document.querySelector("#minicircle").style.transform=`translate(${e.clientX}px, ${e.clientY}px) `
-       })
-       
-    }
-    circleChaptaKaro()
-    circleMouseFollower()
-    firstPageAnim()
-    
-    
-    
-    //  3 element select 
-    
-    document.querySelectorAll(".elem").forEach(function (elem){
-    var rotate=0;
-    var diffrot=0;
-    
-    
-    
-    
-        elem.addEventListener("mousemove",function(details){
-    
-            var diff=details.clientY - elem.getBoundingClientRect().top;
-            diffrot=details.clientX - rotate;
-            rotate=details.clientX;
-         
-            gsap.to(elem.querySelector("img"),{
-        
-                opacity:1,
-                ease:Power3,
-                top:diff,
-                left:details.clientX,
-                rotate:gsap.utils.clamp(-20,20, diffrot*2)
-            })
-    
-        })
-          elem.addEventListener("mouseleave",function(details){
-            gsap.to(elem.querySelector("img"),{
-                opacity:0,
-                ease:Power3,
-               
-              
-            })
-    
-        })
+//     const scroll=new LocomotiveScroll({
+//         el:document.querySelector('#main'),
+//         smooth:true
+//     })
+
+//     var timeout;
+//     function firstPageAnim(){
+//         var tl = gsap.timeline();
+//         tl.from("#nav",{
+//             y:"-20",
+//             duration:2,
+//             opacity:0,
+//             ease:Expo.easeInOut
+//         })
+//         .to(".boundingelem",{
+//             y:0,
+//             ease:Expo.easeInOut,
+//             duration:1.5,
+//             delay:-1,
+//             stagger:.2
+//         })
+//           tl.from("#herofooter",{
+//             y:"-10",
+//             duration:1.5,
+//             opacity:0,
+//             delay:-1,
+//             ease: Expo.easeInOut
+//         })
+//     }
+
+//     function circleChaptaKaro(){
+
+//         let xscale=1;
+//         let yscale=1;
+//         var xprev=0;
+//         var yprev=0;
+//         window.addEventListener("mousemove",(dets)=>{
+//         clearTimeout(timeout)
+
+//     xscale=gsap.utils.clamp(.8,1.2, dets.clientX - xprev)
+//     yscale=gsap.utils.clamp(.8,1.2, dets.clientY - yprev)
+//     xprev=dets.clientX
+//     yprev=dets.clientY
+
+//     circleMouseFollower(xscale, yscale)
+
+//     timeout=setTimeout(function(){
+//     document.querySelector("#minicircle").style.transform=`translate(${dets.clientX}px, ${dets.clientY}px) scale(1,1)`
+//     },100)
+
+//         })
+//     }
+
+//     function circleMouseFollower(xscale, yscale){
+//        window.addEventListener("mousemove",(e)=>{
+//     document.querySelector("#minicircle").style.transform=`translate(${e.clientX}px, ${e.clientY}px) `
+//        })
+
+//     }
+
+//     circleChaptaKaro()
+//     circleMouseFollower()
+//     firstPageAnim()
+
+//     //  3 element select
+
+//     document.querySelectorAll(".elem").forEach(function (elem){
+//     var rotate=0;
+//     var diffrot=0;
+
+//         elem.addEventListener("mousemove",function(details){
+
+//             var diff=details.clientY - elem.getBoundingClientRect().top;
+//             diffrot=details.clientX - rotate;
+//             rotate=details.clientX;
+
+//             gsap.to(elem.querySelector("img"),{
+
+//                 opacity:1,
+//                 ease:Power3,
+//                 top:diff,
+//                 left:details.clientX,
+//                 rotate:gsap.utils.clamp(-20,20, diffrot*2)
+//             })
+
+//         })
+//           elem.addEventListener("mouseleave",function(details){
+//             gsap.to(elem.querySelector("img"),{
+//                 opacity:0,
+//                 ease:Power3,
+
+//             })
+
+//         })
+//     });
+// })
+
+mm.add("(min-width:600px)", () => {
+  const scroll = new LocomotiveScroll({
+    el: document.querySelector("#main"),
+    smooth: true,
+  });
+
+  var timeout;
+  function firstPageAnim() {
+    var tl = gsap.timeline();
+    tl.from("#nav", {
+      y: "-20",
+      duration: 1.5,
+      opacity: 0,
+      ease: Expo.easeInOut,
+    }).to(".boundingelem", {
+      y: 0,
+      ease: Expo.easeInOut,
+      duration: 1.5,
+      delay: -1,
+      stagger: 0.2,
     });
-})
-
-mm.add("(min-width:600px)",()=>{
-
-    const scroll=new LocomotiveScroll({
-        el:document.querySelector('#main'),
-        smooth:true
-    })
-    
-    var timeout;
-    function firstPageAnim(){
-        var tl = gsap.timeline();
-        tl.from("#nav",{
-            y:"-20",
-            duration:1.5,
-            opacity:0,
-            ease:Expo.easeInOut
-        })
-        .to(".boundingelem",{
-            y:0,
-            ease:Expo.easeInOut,
-            duration:1.5,
-            delay:-1,
-            stagger:.2
-        })
-          tl.from("#herofooter",{
-            y:"-10",
-            duration:1.5,
-            opacity:0,
-            delay:-1,
-            ease: Expo.easeInOut
-        })
-    }
-    
-    
-    function circleChaptaKaro(){  
-    
-        let xscale=1;
-        let yscale=1;
-        var xprev=0;
-        var yprev=0;
-        window.addEventListener("mousemove",(dets)=>{
-        clearTimeout(timeout)
-    
-    
-    xscale=gsap.utils.clamp(.8,1.2, dets.clientX - xprev)
-    yscale=gsap.utils.clamp(.8,1.2, dets.clientY - yprev)
-    xprev=dets.clientX
-    yprev=dets.clientY
-    
-    circleMouseFollower(xscale, yscale)
-    
-    
-    timeout=setTimeout(function(){
-    document.querySelector("#minicircle").style.transform=`translate(${dets.clientX}px, ${dets.clientY}px) scale(1,1)`
-    },100)
-    
-        })
-    }
-    
-    function circleMouseFollower(xscale, yscale){
-       window.addEventListener("mousemove",(e)=>{
-    document.querySelector("#minicircle").style.transform=`translate(${e.clientX}px, ${e.clientY}px) `
-       })
-       
-    }
-    circleChaptaKaro()
-    circleMouseFollower()
-    firstPageAnim()
-    
-    
-    
-    //  3 element select 
-    
-    document.querySelectorAll(".elem").forEach(function (elem){
-    var rotate=0;
-    var diffrot=0;
-    
-    
-    
-    
-        elem.addEventListener("mousemove",function(details){
-    
-            var diff=details.clientY - elem.getBoundingClientRect().top;
-            diffrot=details.clientX - rotate;
-            rotate=details.clientX;
-         
-            gsap.to(elem.querySelector("img"),{
-        
-                opacity:1,
-                ease:Power3,
-                top:diff,
-                left:details.clientX,
-                rotate:gsap.utils.clamp(-20,20, diffrot*2)
-            })
-    
-        })
-          elem.addEventListener("mouseleave",function(details){
-            gsap.to(elem.querySelector("img"),{
-                opacity:0,
-                ease:Power3,
-               
-              
-            })
-    
-        })
+    tl.from("#herofooter", {
+      y: "-10",
+      duration: 1.5,
+      opacity: 0,
+      delay: -1,
+      ease: Expo.easeInOut,
     });
-})
+  }
 
+  function circleChaptaKaro() {
+    let xscale = 1;
+    let yscale = 1;
+    var xprev = 0;
+    var yprev = 0;
+    window.addEventListener("mousemove", (dets) => {
+      clearTimeout(timeout);
 
+      xscale = gsap.utils.clamp(0.8, 1.2, dets.clientX - xprev);
+      yscale = gsap.utils.clamp(0.8, 1.2, dets.clientY - yprev);
+      xprev = dets.clientX;
+      yprev = dets.clientY;
 
+      circleMouseFollower(xscale, yscale);
+
+      timeout = setTimeout(function () {
+        document.querySelector("#minicircle").style.transform =
+          `translate(${dets.clientX}px, ${dets.clientY}px) scale(1,1)`;
+      }, 100);
+    });
+  }
+
+  function circleMouseFollower(xscale, yscale) {
+    window.addEventListener("mousemove", (e) => {
+      document.querySelector("#minicircle").style.transform =
+        `translate(${e.clientX}px, ${e.clientY}px) `;
+    });
+  }
+  circleChaptaKaro();
+  circleMouseFollower();
+  firstPageAnim();
+
+  //  3 element select
+
+  document.querySelectorAll(".elem").forEach(function (elem) {
+    var rotate = 0;
+    var diffrot = 0;
+
+    elem.addEventListener("mousemove", function (details) {
+      diffrot = details.clientX - rotate;
+      rotate = details.clientX;
+
+      gsap.to(elem.querySelector("img"), {
+        opacity: 1,
+        ease: Power3,
+        left: details.clientX,
+        rotate: gsap.utils.clamp(-20, 20, diffrot * 2),
+      });
+    });
+    elem.addEventListener("mouseleave", function (details) {
+      gsap.to(elem.querySelector("img"), {
+        opacity: 0,
+        ease: Power3,
+      });
+    });
+  });
+});
